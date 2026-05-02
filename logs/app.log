@@ -415,3 +415,44 @@ AttributeError: type object 'ProductCurated' has no attribute 'id'
 2026-05-02 17:57:14,389 | INFO | app.routers.products | API called | endpoint=/products/curated
 2026-05-02 17:57:14,390 | INFO | app.crud | Fetching curated products
 2026-05-02 17:57:14,553 | INFO | app.main | Request completed | request_id=64496e36-7571-4767-8a62-61d2106073d9 | method=GET| path=/products/curated | status_code=200 | execution_time_ms=167.85
+2026-05-02 18:59:06,374 | INFO | app.main | Request started | request_id=af9c39d0-e3e4-41d1-a14a-62c87160ba7e | method=GET | path = /| 5.984306335449219e-05
+2026-05-02 18:59:06,375 | INFO | app.main | Request completed | request_id=af9c39d0-e3e4-41d1-a14a-62c87160ba7e | method=GET| path=/ | status_code=404 | execution_time_ms=1.65
+2026-05-02 18:59:09,487 | INFO | app.main | Request started | request_id=cadb8028-c2b5-44b8-b8d7-92f704975c43 | method=GET | path = /docs| 3.647804260253906e-05
+2026-05-02 18:59:09,488 | INFO | app.main | Request completed | request_id=cadb8028-c2b5-44b8-b8d7-92f704975c43 | method=GET| path=/docs | status_code=200 | execution_time_ms=1.07
+2026-05-02 18:59:09,561 | INFO | app.main | Request started | request_id=91db88ba-ac9f-4d85-a262-e4725fd9ef49 | method=GET | path = /openapi.json| 3.6716461181640625e-05
+2026-05-02 18:59:09,577 | INFO | app.main | Request completed | request_id=91db88ba-ac9f-4d85-a262-e4725fd9ef49 | method=GET| path=/openapi.json | status_code=200 | execution_time_ms=16.19
+2026-05-02 18:59:11,437 | INFO | app.main | Request started | request_id=8757f1fe-57db-406c-93b2-8d2b2f96df61 | method=GET | path = /docks| 3.6716461181640625e-05
+2026-05-02 18:59:11,438 | INFO | app.main | Request completed | request_id=8757f1fe-57db-406c-93b2-8d2b2f96df61 | method=GET| path=/docks | status_code=404 | execution_time_ms=0.93
+2026-05-02 18:59:14,439 | INFO | app.main | Request started | request_id=dd5a3a55-80f7-4493-acf1-65a87c9a5257 | method=GET | path = /docs| 2.47955322265625e-05
+2026-05-02 18:59:14,440 | INFO | app.main | Request completed | request_id=dd5a3a55-80f7-4493-acf1-65a87c9a5257 | method=GET| path=/docs | status_code=200 | execution_time_ms=1.33
+2026-05-02 18:59:14,537 | INFO | app.main | Request started | request_id=e9762458-0051-4c18-8491-d2d03fea74c8 | method=GET | path = /openapi.json| 9.298324584960938e-06
+2026-05-02 18:59:14,538 | INFO | app.main | Request completed | request_id=e9762458-0051-4c18-8491-d2d03fea74c8 | method=GET| path=/openapi.json | status_code=200 | execution_time_ms=0.54
+2026-05-02 19:00:08,145 | INFO | app.main | Request started | request_id=57e36262-41e2-4730-ab8b-f28f49c73f39 | method=POST | path = /products/ingest| 3.7670135498046875e-05
+2026-05-02 19:00:08,153 | INFO | app.routers.products | API called | endpoint=/products/ingest | records = 2
+2026-05-02 19:00:08,153 | INFO | root | Starting staging insert | batch_id = e21c92ae-7a67-464f-8830-5a869b38dfff | records = 2
+2026-05-02 19:00:08,570 | INFO | app.crud | Complete staging insert | batch_id = e21c92ae-7a67-464f-8830-5a869b38dfff | records = 2
+2026-05-02 19:00:08,572 | INFO | app.main | Request completed | request_id=57e36262-41e2-4730-ab8b-f28f49c73f39 | method=POST| path=/products/ingest | status_code=201 | execution_time_ms=427.0
+2026-05-02 19:00:09,301 | INFO | app.main | Request started | request_id=3c5aefd8-922f-49c4-8ad6-53c80e7250f3 | method=POST | path = /products/load| 3.838539123535156e-05
+2026-05-02 19:00:09,302 | INFO | app.routers.products | API called | endpoint=/products/load
+2026-05-02 19:00:09,303 | INFO | app.crud | Starting stored procedure execution | procedure.usp_load_products
+2026-05-02 19:00:09,357 | INFO | app.crud | Completed stored procedure execution | procedure = curated.usp_load_products
+2026-05-02 19:00:09,359 | INFO | app.main | Request completed | request_id=3c5aefd8-922f-49c4-8ad6-53c80e7250f3 | method=POST| path=/products/load | status_code=200 | execution_time_ms=58.15
+2026-05-02 19:10:49,659 | INFO | app.main | Request started | request_id=d2f5618c-7101-4763-94c0-ef10c89748ce | method=GET | path = /| 6.079673767089844e-05
+2026-05-02 19:10:49,660 | INFO | app.main | Request completed | request_id=d2f5618c-7101-4763-94c0-ef10c89748ce | method=GET| path=/ | status_code=404 | execution_time_ms=1.67
+2026-05-02 19:10:54,424 | INFO | app.main | Request started | request_id=608533b0-bfc7-497e-9ece-3670b47086ac | method=GET | path = /docs| 9.322166442871094e-05
+2026-05-02 19:10:54,425 | INFO | app.main | Request completed | request_id=608533b0-bfc7-497e-9ece-3670b47086ac | method=GET| path=/docs | status_code=200 | execution_time_ms=1.34
+2026-05-02 19:10:54,544 | INFO | app.main | Request started | request_id=567dac10-d788-4df1-8043-71238e8efc39 | method=GET | path = /openapi.json| 3.266334533691406e-05
+2026-05-02 19:10:54,566 | INFO | app.main | Request completed | request_id=567dac10-d788-4df1-8043-71238e8efc39 | method=GET| path=/openapi.json | status_code=200 | execution_time_ms=22.19
+2026-05-02 19:33:14,860 | INFO | app.main | Request started | request_id=e5f560b5-cbd1-495b-b61c-f5252f941ef4 | method=POST | path = /products/ingest| 0.0004975795745849609
+2026-05-02 19:33:14,892 | INFO | app.main | Request completed | request_id=e5f560b5-cbd1-495b-b61c-f5252f941ef4 | method=POST| path=/products/ingest | status_code=422 | execution_time_ms=32.5
+2026-05-02 19:36:15,943 | INFO | app.main | Request started | request_id=501def85-9fc9-42ba-bf99-847d612e6b08 | method=GET | path = /docs| 6.0558319091796875e-05
+2026-05-02 19:36:15,945 | INFO | app.main | Request completed | request_id=501def85-9fc9-42ba-bf99-847d612e6b08 | method=GET| path=/docs | status_code=200 | execution_time_ms=1.9
+2026-05-02 19:36:16,008 | INFO | app.main | Request started | request_id=e5536bfe-c71e-4fe2-92ec-96c7a2c8a7c7 | method=GET | path = /openapi.json| 1.5735626220703125e-05
+2026-05-02 19:36:16,010 | INFO | app.main | Request completed | request_id=e5536bfe-c71e-4fe2-92ec-96c7a2c8a7c7 | method=GET| path=/openapi.json | status_code=200 | execution_time_ms=1.49
+2026-05-02 19:37:28,290 | INFO | app.main | Request started | request_id=4d661b60-b353-4509-8256-22db375c0a14 | method=POST | path = /products/ingest| 1.71661376953125e-05
+2026-05-02 19:37:28,293 | INFO | app.main | Request completed | request_id=4d661b60-b353-4509-8256-22db375c0a14 | method=POST| path=/products/ingest | status_code=422 | execution_time_ms=3.18
+2026-05-02 19:44:04,460 | INFO | app.main | Request started | request_id=026576e5-1592-4f89-95c9-c2b3e7330df8 | method=POST | path = /products/ingest| 1.811981201171875e-05
+2026-05-02 19:44:04,469 | INFO | app.routers.products | API called | endpoint=/products/ingest | records = 2
+2026-05-02 19:44:04,470 | INFO | root | Starting staging insert | batch_id = 9a993a35-4c5f-4b49-820a-3d2e7dd2a533 | records = 2
+2026-05-02 19:44:04,951 | INFO | app.crud | Complete staging insert | batch_id = 9a993a35-4c5f-4b49-820a-3d2e7dd2a533 | records = 2
+2026-05-02 19:44:04,954 | INFO | app.main | Request completed | request_id=026576e5-1592-4f89-95c9-c2b3e7330df8 | method=POST| path=/products/ingest | status_code=201 | execution_time_ms=493.88
