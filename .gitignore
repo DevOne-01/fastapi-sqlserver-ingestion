@@ -13,3 +13,7 @@ __pycache__/
 # IDE settings
 .vscode/
 .idea/
+
+airflow/logs/
+airflow/config/
+airflow/plugins/
