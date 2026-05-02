@@ -1,0 +1,12 @@
+services:
+  nifi:
+    image: apache/nifi:latest
+    container_name: local-nifi
+    ports:
+      - "8443:8443"
+    environment:
+      - SINGLE_USER_CREDENTIALS_USERNAME=khush
+      - SINGLE_USER_CREDENTIALS_USERNAME=Saikrupa@21022001
+    volumes:
+      - ./nifi_data:/opt/nifi/nifi-current/data
+    restart: unless-stopped
