@@ -42,4 +42,4 @@ def run_load_products_procedure(db:Session):
 def get_curated_products(db:Session):
     logger.info("Fetching curated products")
 
-    return db.query(ProductCurated).order_by(ProductCurated.id.desc()).all()
+    return db.query(ProductCurated).order_by(ProductCurated.product_id.desc()).all()

@@ -1,0 +1,417 @@
+2026-05-02 11:03:23,722 | INFO | app.main | Request started | request_id=5ab13a57-9e17-489a-bbcd-0c7da2e8b6a3 | method=GET | path = /| 2.7179718017578125e-05
+2026-05-02 11:03:23,723 | INFO | app.main | Request completed | request_id=5ab13a57-9e17-489a-bbcd-0c7da2e8b6a3 | method=GET| path=/ | status_code=404 | execution_time_ms=1.21
+2026-05-02 11:03:23,743 | INFO | app.main | Request started | request_id=0bef6856-ff4c-47da-b763-17c15334d23b | method=GET | path = /favicon.ico| 3.695487976074219e-05
+2026-05-02 11:03:23,743 | INFO | app.main | Request completed | request_id=0bef6856-ff4c-47da-b763-17c15334d23b | method=GET| path=/favicon.ico | status_code=404 | execution_time_ms=0.55
+2026-05-02 11:03:46,906 | INFO | app.main | Request started | request_id=1c52f77f-f48e-45a5-bec9-1bc31f589063 | method=GET | path = /docs| 2.09808349609375e-05
+2026-05-02 11:03:46,908 | INFO | app.main | Request completed | request_id=1c52f77f-f48e-45a5-bec9-1bc31f589063 | method=GET| path=/docs | status_code=200 | execution_time_ms=1.81
+2026-05-02 11:03:47,032 | INFO | app.main | Request started | request_id=14f48b0d-f074-478d-946f-b93b3dccf13e | method=GET | path = /openapi.json| 3.147125244140625e-05
+2026-05-02 11:03:47,045 | INFO | app.main | Request completed | request_id=14f48b0d-f074-478d-946f-b93b3dccf13e | method=GET| path=/openapi.json | status_code=200 | execution_time_ms=13.14
+2026-05-02 11:06:11,646 | INFO | app.main | Request started | request_id=aa7befe8-728d-4efa-94fd-208f8d6c0a73 | method=POST | path = /products/ingest| 9.036064147949219e-05
+2026-05-02 11:06:11,657 | INFO | app.routers.products | API called | endpoint=/products/ingest | records = 2
+2026-05-02 11:06:11,658 | INFO | root | Starting staging insert | batch_id = 48a771ed-f180-4ed4-881f-95ca7aefdb67 | records = 2
+2026-05-02 11:06:11,668 | ERROR | app.routers.products | failed product ingestion | error=(pyodbc.InterfaceError) ('IM002', '[IM002] [Microsoft][ODBC Driver Manager] Data source name not found and no default driver specified (0) (SQLDriverConnect)')
+(Background on this error at: https://sqlalche.me/e/20/rvf5)
+Traceback (most recent call last):
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 143, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 3317, in raw_connection
+    return self.pool.connect()
+           ~~~~~~~~~~~~~~~~~^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\pool\base.py", line 448, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\pool\base.py", line 1272, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\pool\base.py", line 712, in checkout
+    rec = pool._do_get()
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\pool\impl.py", line 177, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 121, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\pool\impl.py", line 175, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\pool\base.py", line 389, in _create_connection
+    return _ConnectionRecord(self)
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\pool\base.py", line 674, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\pool\base.py", line 900, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 121, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\pool\base.py", line 896, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\engine\create.py", line 667, in connect
+    return dialect.connect(*cargs_tup, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 630, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+pyodbc.InterfaceError: ('IM002', '[IM002] [Microsoft][ODBC Driver Manager] Data source name not found and no default driver specified (0) (SQLDriverConnect)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\app\routers\products.py", line 27, in ingest_products
+    batch_id = crud.insert_products_staging(
+        db=db,
+        products=products,
+        source_system=source_system
+    )
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\app\crud.py", line 28, in insert_products_staging
+    db.commit()
+    ~~~~~~~~~^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2030, in commit
+    trans.commit(_to_root=True)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "<string>", line 2, in commit
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1311, in commit
+    self._prepare_impl()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "<string>", line 2, in _prepare_impl
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1286, in _prepare_impl
+    self.session.flush()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4331, in flush
+    self._flush(objects)
+    ~~~~~~~~~~~^^^^^^^^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4466, in _flush
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 121, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4427, in _flush
+    flush_context.execute()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+    ~~~~~~~~~~~^^^^^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.mapper,
+        ^^^^^^^^^^^^
+        uow.states_for_mapper_hierarchy(self.mapper, False, False),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        uow,
+        ^^^^
+    )
+    ^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 68, in save_obj
+    ) in _organize_states_for_save(base_mapper, states, uowtransaction):
+         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 223, in _organize_states_for_save
+    for state, dict_, mapper, connection in _connections_for_states(
+                                            ~~~~~~~~~~~~~~~~~~~~~~~^
+        base_mapper, uowtransaction, states
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ):
+    ^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 1759, in _connections_for_states
+    connection = uowtransaction.transaction.connection(base_mapper)
+  File "<string>", line 2, in connection
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1037, in connection
+    return self._connection_for_bind(bind, execution_options)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in _connection_for_bind
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1173, in _connection_for_bind
+    conn = self._parent._connection_for_bind(
+        bind, execution_options
+    )
+  File "<string>", line 2, in _connection_for_bind
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1187, in _connection_for_bind
+    conn = bind.connect()
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 3293, in connect
+    return self._connection_cls(self)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 145, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        err, dialect, engine
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2448, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 143, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 3317, in raw_connection
+    return self.pool.connect()
+           ~~~~~~~~~~~~~~~~~^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\pool\base.py", line 448, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\pool\base.py", line 1272, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\pool\base.py", line 712, in checkout
+    rec = pool._do_get()
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\pool\impl.py", line 177, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 121, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\pool\impl.py", line 175, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\pool\base.py", line 389, in _create_connection
+    return _ConnectionRecord(self)
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\pool\base.py", line 674, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\pool\base.py", line 900, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 121, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\pool\base.py", line 896, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\engine\create.py", line 667, in connect
+    return dialect.connect(*cargs_tup, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 630, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.InterfaceError: (pyodbc.InterfaceError) ('IM002', '[IM002] [Microsoft][ODBC Driver Manager] Data source name not found and no default driver specified (0) (SQLDriverConnect)')
+(Background on this error at: https://sqlalche.me/e/20/rvf5)
+2026-05-02 11:06:11,692 | INFO | app.main | Request completed | request_id=aa7befe8-728d-4efa-94fd-208f8d6c0a73 | method=POST| path=/products/ingest | status_code=500 | execution_time_ms=45.56
+2026-05-02 17:40:42,739 | INFO | app.main | Request started | request_id=49afaffa-50fc-4055-b2a5-cdafdd2f3c25 | method=GET | path = /| 4.5299530029296875e-05
+2026-05-02 17:40:42,741 | INFO | app.main | Request completed | request_id=49afaffa-50fc-4055-b2a5-cdafdd2f3c25 | method=GET| path=/ | status_code=404 | execution_time_ms=1.29
+2026-05-02 17:40:51,179 | INFO | app.main | Request started | request_id=461fe7ee-4ad2-4443-a516-78f0b15c7b2c | method=GET | path = /docs| 4.1484832763671875e-05
+2026-05-02 17:40:51,181 | INFO | app.main | Request completed | request_id=461fe7ee-4ad2-4443-a516-78f0b15c7b2c | method=GET| path=/docs | status_code=200 | execution_time_ms=1.85
+2026-05-02 17:40:51,301 | INFO | app.main | Request started | request_id=16c14031-8849-42bd-a012-657fa6193edc | method=GET | path = /openapi.json| 2.288818359375e-05
+2026-05-02 17:40:51,315 | INFO | app.main | Request completed | request_id=16c14031-8849-42bd-a012-657fa6193edc | method=GET| path=/openapi.json | status_code=200 | execution_time_ms=14.08
+2026-05-02 17:41:35,118 | INFO | app.main | Request started | request_id=cf02b88c-25e3-41fe-ba0d-7fd94ace561b | method=POST | path = /products/ingest| 3.314018249511719e-05
+2026-05-02 17:41:35,128 | INFO | app.routers.products | API called | endpoint=/products/ingest | records = 2
+2026-05-02 17:41:35,128 | INFO | root | Starting staging insert | batch_id = a75f521a-54a4-427a-b947-bf433dec8783 | records = 2
+2026-05-02 17:41:35,133 | ERROR | app.routers.products | failed product ingestion | error=(pyodbc.InterfaceError) ('IM002', '[IM002] [Microsoft][ODBC Driver Manager] Data source name not found and no default driver specified (0) (SQLDriverConnect)')
+(Background on this error at: https://sqlalche.me/e/20/rvf5)
+Traceback (most recent call last):
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 143, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 3317, in raw_connection
+    return self.pool.connect()
+           ~~~~~~~~~~~~~~~~~^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\pool\base.py", line 448, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\pool\base.py", line 1272, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\pool\base.py", line 712, in checkout
+    rec = pool._do_get()
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\pool\impl.py", line 177, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 121, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\pool\impl.py", line 175, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\pool\base.py", line 389, in _create_connection
+    return _ConnectionRecord(self)
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\pool\base.py", line 674, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\pool\base.py", line 900, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 121, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\pool\base.py", line 896, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\engine\create.py", line 667, in connect
+    return dialect.connect(*cargs_tup, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 630, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+pyodbc.InterfaceError: ('IM002', '[IM002] [Microsoft][ODBC Driver Manager] Data source name not found and no default driver specified (0) (SQLDriverConnect)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\app\routers\products.py", line 27, in ingest_products
+    batch_id = crud.insert_products_staging(
+        db=db,
+        products=products,
+        source_system=source_system
+    )
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\app\crud.py", line 28, in insert_products_staging
+    db.commit()
+    ~~~~~~~~~^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2030, in commit
+    trans.commit(_to_root=True)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "<string>", line 2, in commit
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1311, in commit
+    self._prepare_impl()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "<string>", line 2, in _prepare_impl
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1286, in _prepare_impl
+    self.session.flush()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4331, in flush
+    self._flush(objects)
+    ~~~~~~~~~~~^^^^^^^^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4466, in _flush
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 121, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4427, in _flush
+    flush_context.execute()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+    ~~~~~~~~~~~^^^^^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.mapper,
+        ^^^^^^^^^^^^
+        uow.states_for_mapper_hierarchy(self.mapper, False, False),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        uow,
+        ^^^^
+    )
+    ^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 68, in save_obj
+    ) in _organize_states_for_save(base_mapper, states, uowtransaction):
+         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 223, in _organize_states_for_save
+    for state, dict_, mapper, connection in _connections_for_states(
+                                            ~~~~~~~~~~~~~~~~~~~~~~~^
+        base_mapper, uowtransaction, states
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ):
+    ^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 1759, in _connections_for_states
+    connection = uowtransaction.transaction.connection(base_mapper)
+  File "<string>", line 2, in connection
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1037, in connection
+    return self._connection_for_bind(bind, execution_options)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in _connection_for_bind
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1173, in _connection_for_bind
+    conn = self._parent._connection_for_bind(
+        bind, execution_options
+    )
+  File "<string>", line 2, in _connection_for_bind
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1187, in _connection_for_bind
+    conn = bind.connect()
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 3293, in connect
+    return self._connection_cls(self)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 145, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        err, dialect, engine
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2448, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 143, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 3317, in raw_connection
+    return self.pool.connect()
+           ~~~~~~~~~~~~~~~~~^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\pool\base.py", line 448, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\pool\base.py", line 1272, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\pool\base.py", line 712, in checkout
+    rec = pool._do_get()
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\pool\impl.py", line 177, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 121, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\pool\impl.py", line 175, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\pool\base.py", line 389, in _create_connection
+    return _ConnectionRecord(self)
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\pool\base.py", line 674, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\pool\base.py", line 900, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 121, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\pool\base.py", line 896, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\engine\create.py", line 667, in connect
+    return dialect.connect(*cargs_tup, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 630, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.InterfaceError: (pyodbc.InterfaceError) ('IM002', '[IM002] [Microsoft][ODBC Driver Manager] Data source name not found and no default driver specified (0) (SQLDriverConnect)')
+(Background on this error at: https://sqlalche.me/e/20/rvf5)
+2026-05-02 17:41:35,156 | INFO | app.main | Request completed | request_id=cf02b88c-25e3-41fe-ba0d-7fd94ace561b | method=POST| path=/products/ingest | status_code=500 | execution_time_ms=37.22
+2026-05-02 17:50:51,581 | INFO | app.main | Request started | request_id=92f478e1-8203-497d-b4e1-c04509ba1efb | method=GET | path = /| 3.6716461181640625e-05
+2026-05-02 17:50:51,583 | INFO | app.main | Request completed | request_id=92f478e1-8203-497d-b4e1-c04509ba1efb | method=GET| path=/ | status_code=404 | execution_time_ms=1.49
+2026-05-02 17:50:56,840 | INFO | app.main | Request started | request_id=490fa59d-82a0-441a-820b-2e5af0c99f47 | method=GET | path = /docs| 6.532669067382812e-05
+2026-05-02 17:50:56,841 | INFO | app.main | Request completed | request_id=490fa59d-82a0-441a-820b-2e5af0c99f47 | method=GET| path=/docs | status_code=200 | execution_time_ms=1.24
+2026-05-02 17:50:56,969 | INFO | app.main | Request started | request_id=6c841a0e-58e0-4f88-80a2-694468063dd4 | method=GET | path = /openapi.json| 4.3392181396484375e-05
+2026-05-02 17:50:56,980 | INFO | app.main | Request completed | request_id=6c841a0e-58e0-4f88-80a2-694468063dd4 | method=GET| path=/openapi.json | status_code=200 | execution_time_ms=11.34
+2026-05-02 17:51:11,742 | INFO | app.main | Request started | request_id=971042a7-f296-44f8-87eb-2e59c0d8d4d8 | method=POST | path = /products/ingest| 2.3365020751953125e-05
+2026-05-02 17:51:11,745 | INFO | app.routers.products | API called | endpoint=/products/ingest | records = 2
+2026-05-02 17:51:11,746 | INFO | root | Starting staging insert | batch_id = 5a02f810-5ba4-474f-b3bc-80e9b2ae808d | records = 2
+2026-05-02 17:51:12,110 | INFO | app.crud | Complete staging insert | batch_id = 5a02f810-5ba4-474f-b3bc-80e9b2ae808d | records = 2
+2026-05-02 17:51:12,111 | INFO | app.main | Request completed | request_id=971042a7-f296-44f8-87eb-2e59c0d8d4d8 | method=POST| path=/products/ingest | status_code=201 | execution_time_ms=369.09
+2026-05-02 17:52:08,047 | INFO | app.main | Request started | request_id=bd7d16c6-077e-4dc4-8491-e452e0786040 | method=POST | path = /products/load| 4.696846008300781e-05
+2026-05-02 17:52:08,050 | INFO | app.routers.products | API called | endpoint=/products/load
+2026-05-02 17:52:08,050 | INFO | app.crud | Starting stored procedure execution | procedure.usp_load_products
+2026-05-02 17:52:08,121 | INFO | app.crud | Completed stored procedure execution | procedure = curated.usp_load_products
+2026-05-02 17:52:08,123 | INFO | app.main | Request completed | request_id=bd7d16c6-077e-4dc4-8491-e452e0786040 | method=POST| path=/products/load | status_code=200 | execution_time_ms=75.32
+2026-05-02 17:52:38,481 | INFO | app.main | Request started | request_id=c541d54b-ff56-48d9-8bfe-fe95d63d1d98 | method=GET | path = /products/curated| 3.9577484130859375e-05
+2026-05-02 17:52:38,483 | INFO | app.routers.products | API called | endpoint=/products/curated
+2026-05-02 17:52:38,484 | INFO | app.crud | Fetching curated products
+2026-05-02 17:52:38,484 | ERROR | app.routers.products | failed fetching curated products | error=type object 'ProductCurated' has no attribute 'id'
+Traceback (most recent call last):
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\app\routers\products.py", line 59, in get_products
+    return crud.get_curated_products(db)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+  File "E:\Python Stuff\fastapi-sqlserver-ingestion\app\crud.py", line 45, in get_curated_products
+    return db.query(ProductCurated).order_by(ProductCurated.id.desc()).all()
+                                             ^^^^^^^^^^^^^^^^^
+AttributeError: type object 'ProductCurated' has no attribute 'id'
+2026-05-02 17:52:38,487 | INFO | app.main | Request completed | request_id=c541d54b-ff56-48d9-8bfe-fe95d63d1d98 | method=GET| path=/products/curated | status_code=500 | execution_time_ms=6.16
+2026-05-02 17:57:14,386 | INFO | app.main | Request started | request_id=64496e36-7571-4767-8a62-61d2106073d9 | method=GET | path = /products/curated| 5.698204040527344e-05
+2026-05-02 17:57:14,389 | INFO | app.routers.products | API called | endpoint=/products/curated
+2026-05-02 17:57:14,390 | INFO | app.crud | Fetching curated products
+2026-05-02 17:57:14,553 | INFO | app.main | Request completed | request_id=64496e36-7571-4767-8a62-61d2106073d9 | method=GET| path=/products/curated | status_code=200 | execution_time_ms=167.85
