@@ -1,4 +1,4 @@
-# FastAPI + SQL Server Data Ingestion Platform
+# FastAPI + SQL Server Data Ingestion Tool
 
 ## Overview
 
