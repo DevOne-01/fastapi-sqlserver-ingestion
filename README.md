@@ -127,7 +127,7 @@ fastapi-sqlserver-ingestion/
 ### 1. Clone repository
 
 ```bash
-git clone <repo_url>
+git clone [<repo_url>](https://github.com/DevOne-01/fastapi-sqlserver-ingestion.git)
 cd fastapi-sqlserver-ingestion
 ```
 
